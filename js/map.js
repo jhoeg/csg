@@ -21,7 +21,7 @@ if ( window.main === undefined) { window.main = {}; }
 main.AGSurl = "https://txgeo.usgs.gov/arcgis/rest/services/FAS/RioGrandeFASMap/MapServer";
 
 // list of HUC8's to spatially limit CWIS queries to
-main.CWIS_HUC8s = "13010001,13010002,13010003,13010004,13010005,13020101,13020102,13020201,13020202,13020203,13020204,13020205,13020206,13020207,13020208,13020209,13020210,13020211,13030101,13030102,13030103,13040100"; // dpearson 20160928
+main.CWIS_HUC8s = "12080001,12080002,12080003,12080004,12080005,12080006,12080007,12080008"; // All CSG sites should fall under this HUC
 
 
 //===========================================================
@@ -177,7 +177,23 @@ main.init = function () {
                     "on_update"    : function() { $("#LastUpdate").html( "Real-time data is latest available as of<br/>" + main.formatDate(new Date()) ); }
                 }
             );
-            
+
+            // CWIS sites
+            var layer = L.cwis(
+                "site", // layer type
+                { // service options for data retrieval
+                    siteNumbers: "07227420,07227456,07227458,07227460,07227465,07234150,07295450,07298150,07299575,07299825,07299830,07307550,07307720,08079400,08079570,08079580,08080510,08080650,08080750,08080918,08082900,08117990,08123618,08123620,08125400,08125600,08125700,08127090,08127100,08127101,08127102,08128010,08128095,08128990,08130505,08134400,08136200,08136220,08141100,08143700,08143880,08143905,08367050,08407580,08407581,08407595,08407596,08435660,08436800,08444400,08447200,08449250"
+                },
+                { // layer options for data presentation
+                    shape: "circle",
+                    radius: 10,
+                    fillColor: "aqua",
+                    onSuccess: function (lyr) {
+                        map.fitBounds(lyr.getBounds());
+                    }
+                }
+            );
+            map.addLayer(layer);
             //................
             // misc
             
