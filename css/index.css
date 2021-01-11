@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /*
 ==========================================
 CSS for Upper Rio Grande Basin Focus Area Study
@@ -113,7 +113,7 @@ header
 */
 .top-banner {
     width: 100%;
-    background-color: #000;
+    background-color: #833987;
     padding-top: 10px;
     padding-bottom: 10px;
     margin-bottom: 20px;
@@ -130,7 +130,7 @@ footer
 */
 .bottom-footer {
     width: 100%;
-    background-color: #000;
+    background-color: #833987;
     padding-top: 10px;
     padding-bottom: 10px;
 }
