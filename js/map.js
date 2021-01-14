@@ -60,7 +60,7 @@ main.init = function () {
         };
         
         // set study area extent
-        main.studyExtent = new Extent( -108.52747, 30.23587, -105.12067, 38.46137, new SpatialReference({wkid:4326}));
+        main.studyExtent = new Extent( -98, 29, -103, 33, new SpatialReference({wkid:4326}));
         
         //......................................
         // create map
@@ -156,7 +156,7 @@ main.init = function () {
             // add layers
             
             // AGS layers
-            main.map.addLayer( new ArcGISDynamicMapServiceLayer( main.AGSurl, { "id":"AGSmask",   "opacity":0.6, "visible":true }) );  main.map.getLayer("AGSmask"  ).setVisibleLayers([2]); // Rio Grande Study Area Mask (2)
+            main.map.addLayer( new ArcGISDynamicMapServiceLayer( main.AGSurl, { "id":"AGSmask",   "opacity":0.6, "visible":false }) );  main.map.getLayer("AGSmask"  ).setVisibleLayers([2]); // Rio Grande Study Area Mask (2)
             main.map.addLayer( new ArcGISDynamicMapServiceLayer( main.AGSurl, { "id":"AGSbasins", "opacity":1.0, "visible":true }) );  main.map.getLayer("AGSbasins").setVisibleLayers([0]); // Sub-basins HUC8 (0)
             
             // CWIS layers
@@ -179,21 +179,21 @@ main.init = function () {
             );
 
             // CWIS sites
-            var layer = L.cwis(
-                "site", // layer type
-                { // service options for data retrieval
-                    siteNumbers: "07227420,07227456,07227458,07227460,07227465,07234150,07295450,07298150,07299575,07299825,07299830,07307550,07307720,08079400,08079570,08079580,08080510,08080650,08080750,08080918,08082900,08117990,08123618,08123620,08125400,08125600,08125700,08127090,08127100,08127101,08127102,08128010,08128095,08128990,08130505,08134400,08136200,08136220,08141100,08143700,08143880,08143905,08367050,08407580,08407581,08407595,08407596,08435660,08436800,08444400,08447200,08449250"
-                },
-                { // layer options for data presentation
-                    shape: "circle",
-                    radius: 10,
-                    fillColor: "aqua",
-                    onSuccess: function (lyr) {
-                        map.fitBounds(lyr.getBounds());
-                    }
-                }
-            );
-            map.addLayer(layer);
+  //          var layer = L.cwis(
+  //             "site", // layer type
+  //              { // service options for data retrieval
+   //                 siteNumbers: "07227420,07227456,07227458,07227460,07227465,07234150,07295450,07298150,07299575,07299825,07299830,07307550,07307720,08079400,08079570,08079580,08080510,08080650,08080750,08080918,08082900,08117990,08123618,08123620,08125400,08125600,08125700,08127090,08127100,08127101,08127102,08128010,08128095,08128990,08130505,08134400,08136200,08136220,08141100,08143700,08143880,08143905,08367050,08407580,08407581,08407595,08407596,08435660,08436800,08444400,08447200,08449250"
+   //             },
+   //             { // layer options for data presentation
+   //                 shape: "circle",
+   //                 radius: 10,
+   //                 fillColor: "aqua",
+   //                 onSuccess: function (lyr) {
+   //                     map.fitBounds(lyr.getBounds());
+   //                 }
+   //             }
+   //         );
+   //         map.addLayer(layer);
             //................
             // misc
             
@@ -384,20 +384,20 @@ main.createPlot = function() {
 // HUC8plot
 //   add or remove all sites in input 'HUC8' based on the HUC8 checkbox state
 //   sites in other HUC8s are left alone
-main.HUC8plot = function(HUC8) {
-    var funcName = "main [HUC8plot]: ";
+//main.HUC8plot = function(HUC8) {
+//    var funcName = "main [HUC8plot]: ";
     
     // get checkbox state for HUC8
-    var checked = $("#cb_"+HUC8).prop("checked")
-    console.log(funcName+HUC8+" "+checked);
+//    var checked = $("#cb_"+HUC8).prop("checked")
+//    console.log(funcName+HUC8+" "+checked);
     
     // check all checkboxes for this HUC8
-    $("#plot_sites input[data-HUC8="+HUC8+"]").prop("checked",checked);
+//    $("#plot_sites input[data-HUC8="+HUC8+"]").prop("checked",checked);
     
     // update plot
-    main.updatePlot();
+//    main.updatePlot();
     
-}; // HUC8plot
+//}; // HUC8plot
 
 //-----------------------------------------------------------
 // updatePlot

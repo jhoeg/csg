@@ -170,7 +170,7 @@ map popups
 plot
 -----------------------------------
 */
-#plot {
+/*/#plot {
     width: 100%;
     height: 500px;
     margin: 20px 0px;

@@ -19,7 +19,7 @@
         <link rel="stylesheet" href="css/font-awesome.min.css" />
 
         <script src="js/jquery-1.11.1.min.js"></script>
-        <script src="js/bootstrap.min.js"    ></script>
+        <script src="js/bootstrap.min.js"></script>
         <!--[if lt IE 9]>
         <script src="./js/html5shiv.min.js"></script>
         <script src="./js/respond.min.js"  ></script>
@@ -32,19 +32,19 @@
         
         <!-- esri jsapi 3.18 -->
         <link    rel="stylesheet"     href="https://js.arcgis.com/3.18/esri/css/esri.css"/>
-        <script type="text/javascript" src="https://js.arcgis.com/3.18/"                  ></script>
+        <script type="text/javascript" src="https://js.arcgis.com/3.18/"></script>
         
         <!-- CWIS 1.0 -->
-        <link    rel="stylesheet"     href="https://txdata.usgs.gov/CWIS/Services/1.0/jsapi/esri/cwis-map-utils-esri.css"  />
+        <link    rel="stylesheet"     href="https://txdata.usgs.gov/CWIS/Services/1.0/jsapi/esri/cwis-map-utils-esri.css"/>
         <script type="text/javascript" src="https://txdata.usgs.gov/CWIS/Services/1.0/jsapi/esri/cwis-map-utils-esri.min.js"></script>
         
         <!-- GWIS 0.0 -->
-        <link    rel="stylesheet"     href="https://txpub.usgs.gov/DSS/GWIS/0.0/jsapi/gwis-plot-utils.css"  />
+        <link    rel="stylesheet"     href="https://txpub.usgs.gov/DSS/GWIS/0.0/jsapi/gwis-plot-utils.css"/>
         <script type="text/javascript" src="https://txpub.usgs.gov/DSS/GWIS/0.0/jsapi/gwis-plot-utils.min.js"></script>
         
         <!-- main map module -->
         <link rel="stylesheet" href="css/map.css"/>
-        <script type="text/javascript" src="js/map.js" ></script>
+        <script type="text/javascript" src="js/map.js"></script>
         <script type="text/javascript">
             require( ["dojo/ready","dojo/domReady!"], function(ready) {
                 ready( function() {
@@ -101,11 +101,11 @@
             </div>
             
             <!-- plot -->
-            <div class="row">
+            <!--<div class="row">
                 <div class="col-sm-12">
                     
                     <!-- plot -->
-                    <h2>Real-Time Hydrographs</h2>
+                  <!--  <h2>Real-Time Hydrographs</h2>
                     <div id="plot"></div>
 
                 </div>
@@ -114,10 +114,10 @@
                 <div class="col-sm-9">
                     
                     <!-- site list -->
-                    <h5>Select Sites to Plot:</h5>
+                 <!--   <h5>Select Sites to Plot:</h5>
                     <div id="plot_sites">
                         <!-- clear button -->
-                        <button id="plot_btn_clear" type="button" class="btn btn-primary" style="position:absolute; top:30px; right:50px;">Clear All Sites</button>
+                  <!--      <button id="plot_btn_clear" type="button" class="btn btn-primary" style="position:absolute; top:30px; right:50px;">Clear All Sites</button>
                         <script>
                             $("#plot_btn_clear").click( function() {
                                 $("#plot_sites input").prop("checked",false); // uncheck all
@@ -127,21 +127,21 @@
                     </div>
                     <p>&nbsp;</p>
                     
-                </div>
+              <!--  </div>
                 <div class="col-sm-3">
                     <h5>Plot Options:</h5>
                     
                     <!-- pcode menu -->
-                    <div class="dropdown">
+                    <!--<div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:150px; margin-top:5px;">Plot Parameter <span class="caret"></span></button>
                         <ul class="dropdown-menu">
                             <li><a href="javascript: main.plot_data.pcode.val='00060'; main.plot_data.pcode.name='Streamflow, cubic feet per second'; main.updatePlot(); void(0);">Streamflow </a></li>
                             <li><a href="javascript: main.plot_data.pcode.val='00065'; main.plot_data.pcode.name='Gage Height, feet';                 main.updatePlot(); void(0);">Gage Height</a></li>
                         </ul>
-                    </div>
+                    </div>-->
                     
                     <!-- period menu -->
-                    <div class="dropdown">
+                    <!--<div class="dropdown">
                         <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="width:150px; margin-top:5px;">Time Period <span class="caret"></span></button>
                         <ul class="dropdown-menu">
                             <li><a href="javascript: main.plot_data.period.val= 'p1d'; main.plot_data.period.name='Past  1 Day' ; main.updatePlot(); void(0);">Past  1 Day </a></li>
@@ -150,13 +150,15 @@
                             <li><a href="javascript: main.plot_data.period.val='p30d'; main.plot_data.period.name='Past 30 Days'; main.updatePlot(); void(0);">Past 30 Days</a></li>
                             <li><a href="javascript: main.plot_data.period.val='p60d'; main.plot_data.period.name='Past 60 Days'; main.updatePlot(); void(0);">Past 60 Days</a></li>
                         </ul>
-                    </div>
+                    </div>-->
                     
                 </div>
-            </div>
+           <!-- </div>-->
             
         </div>
-        
+        <br />
+        <br />
+
         <!-- footer -->
         <footer class="bottom-footer">
             <div class="container">
@@ -168,7 +170,7 @@
                 </p>
                 <p><a href="https://www.doi.gov">U.S. Department of the Interior</a> || <a href="https://www.usgs.gov">U.S. Geological Survey</a></p>
                 <p>Page Contact Information: <a href="mailto:gs-w-tx_webmaster@usgs.gov?Subject=Rio%20Grande%20Basin%20FAS%20inquiry" target="_blank">gs-w-tx_webmaster@usgs.gov</a></p>
-                <p>Page modified: January 8, 2021</p>
+                <p>Page modified: January 13, 2021</p>
             </div>
         </footer>
         
