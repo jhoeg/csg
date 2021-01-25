@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>CSG sites</title>
+
+        <!-- leaflet (CDN, can host locally) -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.css">
+		
+		<link rel="stylesheet" href="./css/bootstrap.min.css"    />
+        <link rel="stylesheet" href="./css/index.css"            />
+        <link rel="stylesheet" href="./css/fonts.css"            />
+        <link rel="stylesheet" href="./css/font-awesome.min.css" />
+
+    </head>
+
+    <body>
+
+		<!-- top banner -->
+        <nav class="top-banner">
+            <div class="container">
+                <img src="./img/usgsvid.png" alt="USGS"/>
+            </div>
+        </nav>
+        <!-- content -->
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12">
+                    <h1>CSG project</h1>
+                    <ul class="nav nav-tabs spacemetop" >
+                        <li><a href="index.html">Home</a></li>
+                        <li class="active"><a href="map.html">Real-Time Map</a></li>
+                        <li><a href="methods.html">Methods </a></li>
+                        <li><a href="timeline.html">Timeline </a></li>
+                        <li><a href="deliverables.html">Deliverables</a></li>
+                    </ul>
+                </div>
+            </div >
+
+        <!-- map -->
+        <div id="map" style="width:100%; height:600px;"></div>
+
+        <!-- leaflet (CDN, can host locally) -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/leaflet.min.js"></script>
+
+        <!-- L-cwis (get latest version @ https://code.usgs.gov/noms/L-cwis) -->
+        <script src="./L-cwis.min.js"></script>
+
+		<!-- CSG sites geojson-->
+		<script src="CSGsites.js"></script>
+
+        <!-- script -->
+        <script>
+            // create map
+            const map = new L.Map('map', {
+                center: [32, -101],
+                zoom: 6,
+                layers: L.tileLayer('https://services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}')
+            });
+			
+			// L.geoJSON(data.CSGsites, {/*OPTIONS*/}).addTo(map);
+			
+			L.geoJSON(data, {
+			
+				}).bindPopup((layer) => {
+					const {
+						site_no,
+						name
+					} = layer.feature.properties;
+					return '${site_no} ${name}';
+				}).addTo(map);
+				
+			// open popup at location listing all properties
+			map.infoWindow.setTitle("Search Result");
+				map.infoWindow.setContent(
+					'<div class="text-center">' +
+						o.result.properties.site_no + '<br/>' +
+						'<span class="small text-muted"><i>'+ o.result.properties.name + '</i></span>' +
+					'</div>'
+				);
+				require( ["esri/geometry/Point"], function(Point) {
+					map.infoWindow.show(
+						new Point( o.result.properties.Lon, o.result.properties.Lat )
+					);
+				});	
+				
+			var geojsonMarkerOptions = {
+				radius: 4,
+				fillColor: "#ff7800",
+				color: "#000",
+				weight: 1,
+				opacity: 1,
+				fillOpacity: 0.8
+        };	
+
+        </script>
+        <!-- footer -->
+        <footer class="bottom-footer">
+            <div class="container">
+                <p>
+                    <a href="http://www.usgs.gov/accessibility.html"   >Accessibility       </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="http://www.usgs.gov/foia/"                >FOIA                </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="http://www.usgs.gov/privacy.html"         >Privacy             </a>&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="http://www.usgs.gov/policies_notices.html">Policies and Notices</a>
+                </p>
+                <p><a href="http://www.doi.gov">U.S. Department of the Interior</a> || <a href="http://www.usgs.gov">U.S. Geological Survey</a></p>
+                <p>Page Contact Information: <a href="mailto:gs-w-tx_webmaster@usgs.gov?Subject=Coastal%20Carolinas%20Basin%20FAS%20inquiry" target="_blank">gs-w-tx_webmaster@usgs.gov</a></p>
+				<p>Page modified: January 25, 2021</p>
+            </div>
+        </footer>
+    </body>
+
+</html>
